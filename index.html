@@ -61,7 +61,7 @@
 <body>
 
   <div class="container">
-    <h2>JUDUL ULAR</h2>
+    <h2>ADUAN ULAR</h2>
     <form id="waForm">
       <label for="nama">Nama:</label>
       <input type="text" id="nama" required>
@@ -72,7 +72,7 @@
       <label for="nohp">No HP:</label>
       <input type="text" id="nohp" required>
 
-      <label for="keluhan">Keluhan:</label>
+      <label for="keluhan">Posisi Ular:</label>
       <textarea id="keluhan" rows="3" required></textarea>
 
       <button type="submit">Kirim ke WhatsApp</button>
@@ -93,7 +93,7 @@
       const nomorWhatsApp = '6288225343353';
 
       // Buat isi pesan
-      const pesan = `*Aduan Ular*\n\nNama: ${nama}\nAlamat: ${alamat}\nNo HP: ${nohp}\nKeluhan: ${keluhan}`;
+      const pesan = `*Aduan Ular*\n\nNama: ${nama}\nAlamat: ${alamat}\nNo HP: ${nohp}\nPosisi Ular: ${keluhan}`;
 
       // Buka link WhatsApp
       const url = `https://wa.me/${nomorWhatsApp}?text=${encodeURIComponent(pesan)}`;
