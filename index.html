@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Form Kirim ke WhatsApp</title>
+  <title>Form Aduan Ular</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
       padding: 20px;
     }
 
     .container {
-      background: #ffffff;
       max-width: 500px;
       margin: auto;
+      background: white;
       padding: 30px;
       border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
     h2 {
@@ -61,19 +61,19 @@
 <body>
 
   <div class="container">
-    <h2>ADUAN ULAR</h2>
+    <h2>JUDUL FORM</h2>
     <form id="waForm">
       <label for="nama">Nama:</label>
       <input type="text" id="nama" required>
 
       <label for="alamat">Alamat:</label>
-      <textarea id="alamat" rows="3" required></textarea>
+      <textarea id="alamat" rows="2" required></textarea>
 
       <label for="nohp">No HP:</label>
       <input type="text" id="nohp" required>
 
-      <label for="keluhan">Keluhan</label>
-     <textarea id="alamat" rows="3" required></textarea>
+      <label for="keluhan">Keluhan:</label>
+      <textarea id="keluhan" rows="3" required></textarea>
 
       <button type="submit">Kirim ke WhatsApp</button>
     </form>
@@ -83,21 +83,20 @@
     document.getElementById('waForm').addEventListener('submit', function(e) {
       e.preventDefault();
 
-      // Ambil data input
+      // Ambil nilai input
       const nama = document.getElementById('nama').value;
       const alamat = document.getElementById('alamat').value;
       const nohp = document.getElementById('nohp').value;
+      const keluhan = document.getElementById('keluhan').value;
 
-      // Nomor WhatsApp tujuan (ganti dengan nomor kamu)
-      const nomorWA = '6288225343353'; // Format: 62 + nomor tanpa 0
+      // Ganti dengan nomor WhatsApp kamu (format: 628xxxx tanpa +)
+      const nomorWhatsApp = '6288225343353';
 
-      // Format pesan
-      const pesan = `*ADUAN ULAR*\n\nNama: ${nama}\nAlamat: ${alamat}\nNo HP: ${nohp}\nKeluhan: ${keluhan}`;
+      // Buat isi pesan
+      const pesan = `*Aduan Ular*\n\nNama: ${nama}\nAlamat: ${alamat}\nNo HP: ${nohp}\nKeluhan: ${keluhan}`;
 
-      // Encode pesan dan buat link WhatsApp
-      const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
-
-      // Buka WhatsApp
+      // Buka link WhatsApp
+      const url = `https://wa.me/${nomorWhatsApp}?text=${encodeURIComponent(pesan)}`;
       window.open(url, '_blank');
     });
   </script>
