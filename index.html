@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Form Kirim ke WhatsApp</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+
+    .container {
+      background: #ffffff;
+      max-width: 500px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: maroon;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: maroon;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #990000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>ADUAN ULAR</h2>
+    <form id="waForm">
+      <label for="nama">Nama:</label>
+      <input type="text" id="nama" required>
+
+      <label for="alamat">Alamat:</label>
+      <textarea id="alamat" rows="3" required></textarea>
+
+      <label for="nohp">No HP:</label>
+      <input type="text" id="nohp" required>
+
+      <label for="keluhan">Keluhan</label>
+     <textarea id="alamat" rows="3" required></textarea>
+
+      <button type="submit">Kirim ke WhatsApp</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('waForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Ambil data input
+      const nama = document.getElementById('nama').value;
+      const alamat = document.getElementById('alamat').value;
+      const nohp = document.getElementById('nohp').value;
+
+      // Nomor WhatsApp tujuan (ganti dengan nomor kamu)
+      const nomorWA = '62888225343353'; // Format: 62 + nomor tanpa 0
+
+      // Format pesan
+      const pesan = `*JUDUL FORM*\n\nNama: ${nama}\nAlamat: ${alamat}\nNo HP: ${nohp}`;
+
+      // Encode pesan dan buat link WhatsApp
+      const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
+
+      // Buka WhatsApp
+      window.open(url, '_blank');
+    });
+  </script>
+
+</body>
+</html>
